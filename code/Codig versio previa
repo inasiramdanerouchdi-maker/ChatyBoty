@@ -1,0 +1,60 @@
+# Saludar
+salutacio = "Hola!! soc Lucy, la teva assistent de joieria."
+print(salutacio)
+
+# Preguntar el nom
+nom = input("Com et dius? ")
+print("Hola " + nom + ", encantada de coneixe't!!!")
+
+# Preguntes
+p1 = "Puc ajudar-te amb alguna cosa, una combinació? "
+p2 = "Vols que et faci una combinació més elegant? "
+p3 = "Vols alguna cosa més extravagant? "
+p4 = "T'agradaria que et recomani algunes botigues de joieria amb la millor qualitat/preu? "
+p5 = "Per ultim vols saber alguna cosa mes?"
+
+preguntes = [p1, p2, p3, p4]
+
+# Primera pregunta
+p1_resposta = input(p1).lower()
+
+usuari_vol_combinacio = "no"
+
+# Respostes del bot si
+if p1_resposta == "si" or "sí" in p1_resposta:
+    print("""
+Podríem començar amb els bàsics:
+- El blanc amb el rosa queda molt bé.
+- El blau amb el beige també.
+- I si vols alguna cosa més original, el vermell amb el blau fort queda ideal!
+    """)
+    usuari_vol_combinacio = "si"
+else:
+    print("Segur que no? Puc fer-te unes combinacions super boniques! ;)")
+
+# Segona pregunta
+p3_resposta = input(p3).lower()
+
+# Si vol combinació
+if usuari_vol_combinacio == "si":
+    banda = input("El taronja amb el daurat queda ideal, fa molt contrast! Vols provar aquesta combinació? ").lower()
+    if banda == "si" or "sí" in banda:
+        print("Perfecte! Aquesta combinació és atrevida però amb estil ")
+    else:
+        print("Cap problema! Podem provar altres colors més suaus :)")
+
+# Si vol alguna cosa extravagant
+if p3_resposta == "si" or "sí" in p3_resposta:
+    print("Tinc algunes idees! Què et sembla el verd maragda amb plata o el morat amb or rosa?")
+elif p3_resposta == "no" or "no" in p3_resposta:
+    print("D'acord! Mantenim un estil més clàssic i elegant ")
+
+# Última pregunta
+p4_resposta = input(p4).lower()
+
+if p4_resposta == "si" or "sí" in p4_resposta:
+    print("Et recomano 'JoiArt Barcelona' o 'Gemma Luxe' — tenen peces espectaculars!")
+else:
+    print("Cap problema, si canvies d’opinió, t’ajudaré encantada ")
+
+print("Gràcies per parlar amb mi, " + nom + "! Espero haver-te ajudat 💖")
