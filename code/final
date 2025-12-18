@@ -1,0 +1,97 @@
+# Lucy - Assistent de joieria i moda 
+# Aquest bot ajuda a trobar combinacions de joies i roba segons el teu estil.
+
+# Funció per demanar respostes sí/no amb validació
+def preguntar_si_no(pregunta):
+    resposta = input(pregunta + " (respon amb 'sí' o 'no'): ").lower()
+    while resposta not in ["si", "sí", "no"]:
+        resposta = input("Si us plau, respon només amb 'sí' o 'no': ").lower()
+    return resposta
+
+# Funció especial: combinacions segons color
+def combinacions_per_color(color):
+    combinacions = {
+        "blanc": "El blanc combina amb rosa, daurat o blau marí.",
+        "negre": "El negre queda bé amb tot, sobretot amb plata o vermell.",
+        "blau": "El blau amb beige o blanc fa un estil elegant.",
+        "vermell": "El vermell queda genial amb daurat o blau fort.",
+        "verd": "El verd maragda amb plata és una combinació preciosa.",
+        "rosa": "El rosa combina amb blanc o gris clar per un toc suau."
+    }
+    return combinacions.get(color, "No tinc combinacions concretes per a aquest color, però pots provar amb tons neutres.")
+
+# Saludar
+salutacio = "Hola!! Soc Lucy, la teva assistent de joieria i moda."
+print(salutacio)
+
+# Preguntar el nom
+nom = input("Com et dius? ")
+print("Hola " + nom + ", encantada de coneixe't!!! ")
+
+# Acudit de joieria
+print("""
+Abans de començar... vols escoltar un acudit de joieria?
+Per què el diamant mai discuteix amb ningú?
+Perquè sap que sempre té la raó més brillant! 
+""")
+
+# Preguntes
+p1 = "Puc ajudar-te amb alguna cosa, una combinació?"
+p2 = "Vols que et faci una combinació més elegant?"
+p3 = "Vols alguna cosa més extravagant?"
+p4 = "T'agradaria que et recomani algunes botigues de joieria amb la millor qualitat/preu?"
+p5 = "Per últim, vols saber alguna cosa més?"
+
+# Primera pregunta: vol combinació?
+p1_resposta = preguntar_si_no(p1)
+usuari_vol_combinacio = False
+
+if "si" in p1_resposta or "sí" in p1_resposta:
+    usuari_vol_combinacio = True
+    print("""
+Podríem començar amb els bàsics:
+- El blanc amb el rosa queda molt bé.
+- El blau amb el beige també.
+- I si vols alguna cosa més original, el vermell amb el blau fort queda ideal!
+    """)
+else:
+    print("Segur que no? Puc fer-te unes combinacions super boniques! ;)")
+
+# Si vol combinació, pot demanar segons un color
+if usuari_vol_combinacio:
+    color = input("Vols que et recomani combinacions segons un color concret? Quin color vols? ").lower()
+    print(combinacions_per_color(color))
+
+# Segona pregunta: combinació elegant
+p2_resposta = preguntar_si_no(p2)
+if "si" in p2_resposta or "sí" in p2_resposta:
+    print("Et recomano una combinació de tons neutres amb joies de plata o or blanc, molt refinat.")
+else:
+    print("Perfecte! Llavors busquem alguna cosa més casual o natural.")
+
+# Tercera pregunta: extravagant (ara després de la combinació)
+p3_resposta = preguntar_si_no(p3)
+if "si" in p3_resposta or "sí" in p3_resposta:
+    print("Tinc algunes idees! Què et sembla el verd maragda amb plata o el morat amb or rosa?")
+else:
+    print("D'acord! Mantenim un estil més clàssic i elegant.")
+
+# Quarta pregunta: recomanació de botigues
+p4_resposta = preguntar_si_no(p4)
+if "si" in p4_resposta or "sí" in p4_resposta:
+    print("Et recomano 'JoiArt Barcelona' o 'Gemma Luxe' — tenen peces espectaculars!")
+else:
+    print("Cap problema, si canvies d’opinió, t’ajudaré encantada!")
+
+# Cinquena pregunta: alguna cosa més?
+p5_resposta = preguntar_si_no(p5)
+if "si" in p5_resposta or "sí" in p5_resposta:
+    print("M'encanta que vulguis saber més! Pots preguntar-me sobre combinacions, colors o estils.")
+else:
+    print("Perfecte! Ha estat un plaer ajudar-te avui ")
+
+# Comiat amb toc final d'humor
+print("""
+Gràcies per parlar amb mi, """ + nom + """! Espero haver-te ajudat molt 💕
+I recorda: la moda passa... però l'estil i els diamants són per sempre 
+""")
